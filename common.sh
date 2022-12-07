@@ -3,7 +3,7 @@ set -ex
 
 export DEBIAN_FRONTEND=noninteractive
 
-apt update
+#apt-get update
 
 apt install -y systemd systemd-sysv kmod coreutils lsb-release wget curl zip unzip tar busybox iputils-ping iproute2 net-tools jq gnupg2 netcat bind9-dnsutils openssh-client git binutils ripgrep bash-completion
 

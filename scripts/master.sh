@@ -3,7 +3,8 @@ set -ex
 IP_MASTER=${IP_MASTER:-}
 MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD:-root}
 MYSQL_SLAVE_PASSWORD=${MYSQL_SLAVE_PASSWORD:-slave}
-ENDIP=$(ip addr show eth0 | grep 'inet ' | sed -E 's/\s+inet ([0-9.]+)\/[0-9]+ .*/\1/g' | head -n 1 | sed -E 's/^([0-9].+)([0-9]+)$/\2/g')
+ENDIP=$(ip addr show ens33 | grep 'inet ' | sed -E 's/\s+inet ([0-9.]+)\/[0-9]+ .*/\1/g' | head -n 1 | sed -E 's/^([0-9].+)([{.}])([0-9]+)$/\3/g')
+service mysql restart
 while :; 
 do
   if nc -z localhost 3306
